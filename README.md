@@ -317,8 +317,7 @@ Alternatively, upload the notebook directly to Google Colab.
 ## Research Team
 
 | Name |
-|---|
-| Charles Amelano |
+|---|`
 | Mary Yvonne Carandang |
 | Kelsey Leigh Cebrero |
 | John Elvin Endrenal |
