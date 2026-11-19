@@ -142,7 +142,7 @@ The project demonstrates the relationship between Linear Algebra and Machine Lea
 
 The independent variables are represented by a feature matrix:
 
-\[
+$$
 X =
 \begin{bmatrix}
 x_{11} & x_{12} \\
@@ -150,11 +150,11 @@ x_{21} & x_{22} \\
 \vdots & \vdots \\
 x_{n1} & x_{n2}
 \end{bmatrix}
-\]
+$$
 
 The dependent variable is represented by a column vector:
 
-\[
+$$
 y =
 \begin{bmatrix}
 y_1 \\
@@ -162,7 +162,7 @@ y_2 \\
 \vdots \\
 y_n
 \end{bmatrix}
-\]
+$$
 
 Where:
 
@@ -175,9 +175,9 @@ Where:
 
 The intended regression model is:
 
-\[
+$$
 \hat{T} = b_0 + b_1(LOC) + b_2(CC)
-\]
+$$
 
 Where:
 
@@ -192,9 +192,9 @@ Where:
 
 The regression coefficients can be estimated using the Normal Equation:
 
-\[
+$$
 \hat{\beta} = (X^TX)^{-1}X^Ty
-\]
+$$
 
 This formulation applies when the inverse exists. Other numerical approaches, such as the Moore-Penrose pseudoinverse, can be used when necessary.
 
