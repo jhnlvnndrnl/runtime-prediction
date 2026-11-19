@@ -20,7 +20,7 @@ A regression-based research project exploring the relationship between source co
 - [Non-Functional Requirements](#non-functional-requirements)
 - [Limitations](#limitations)
 - [Repository Structure](#repository-structure)
-- [Installation and Usage](#installation-and-usage)
+- [Google Colab Workflow](#google-colab-workflow)
 - [Research Team](#research-team)
 - [References](#references)
 - [Project Status](#project-status)
@@ -100,12 +100,6 @@ The intended research model and current notebook implementation are distinguishe
 | Hugging Face Datasets | Loading the BigO(Bench) dataset |
 | Scikit-learn | Regression modeling and evaluation |
 | Matplotlib | Data visualization |
-
-### Dependencies
-
-```bash
-pip install datasets numpy pandas matplotlib scikit-learn
-```
 
 ## System Workflow
 
@@ -260,59 +254,58 @@ The model's predictions should therefore be treated as estimates rather than gua
 ## Repository Structure
 
 ```text
-code-runtime-predictor/
-│
+runtime-prediction/
 ├── README.md
 ├── notebooks/
-│   └── regression_analysis.ipynb
+│   ├── Part_A_Problem_and_Dataset.ipynb
+│   ├── Part_B_Matrices.ipynb
+│   ├── Part_C_Vector_Spaces.ipynb
+│   ├── Part_D_Linear_Transformations.ipynb
+│   ├── Part_E_Determinants.ipynb
+│   ├── Part_F_Eigenvalues_Eigenvectors.ipynb
+│   ├── Part_G_Diagonalization.ipynb
+│   └── Part_H_Regression_Model.ipynb
 ├── data/
-│   └── README.md
-├── reports/
-│   └── research_proposal.pdf
-├── requirements.txt
-└── .gitignore
+└── docs/
 ```
 
-Dataset files should be downloaded when needed rather than committed unnecessarily to the repository.
+The `docs/` folder is reserved for the research paper and related documentation. Dataset files and intermediate `.npz` files are used through Google Drive rather than committed unnecessarily to the repository.
 
-## Installation and Usage
+## Google Colab Workflow
 
-### Prerequisites
+No local installation is required. Open the notebooks in Google Colab and run them in order.
 
-- Python 3.10 or later
-- Google account
-- Internet connection for initial dataset retrieval
-- Google Colab or a compatible Jupyter environment
+### Execution order
 
-### Clone the Repository
+Run the notebooks from Part A through Part H:
 
-```bash
-git clone https://github.com/jhnlvnndrnl/code-runtime-predictor.git
-```
+- Part A prepares the dataset and saves the initial data.
+- Part B loads Part A's data, performs matrix operations, and saves its results.
+- Part C loads the previous data, calculates vector-space properties, and saves its results.
+- Part D loads the earlier data, applies the transformation, splits the data, and saves the train/test arrays.
+- Part E loads Part D's training data and saves the determinant-related results.
+- Part F loads Part D's data, computes eigenvalues and eigenvectors, and saves `part_f_data.npz`.
+- Part G loads Part F's eigenpairs, performs diagonalization/PCA projection, and saves the projected data.
+- Part H loads the prepared data from Parts D and G, then trains and evaluates the regression models.
 
-### Navigate to the Project Directory
+### Saving and loading between notebooks
 
-```bash
-cd code-runtime-predictor
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Run the Notebook
-
-Open:
+Each notebook must be run completely before opening the next one. At the beginning of each part, the notebook loads data saved by an earlier part from Google Drive. At the end, it saves the variables needed by the next notebook as an `.npz` file in:
 
 ```text
-notebooks/regression_analysis.ipynb
+/content/drive/MyDrive/
 ```
 
-Execute the notebook cells in order.
+For example, Part F loads `part_d_data.npz` and saves `part_f_data.npz`; Part G then loads `part_f_data.npz`. Keep the same Google account and Drive location throughout the workflow.
 
-Alternatively, upload the notebook directly to Google Colab.
+### Running a notebook in Colab
+
+1. Open or upload the required notebook in Google Colab.
+2. Run the cells from top to bottom.
+3. Authorize Google Drive access when prompted.
+4. Confirm the save-success message before continuing to the next part.
+
+The notebooks are designed for the Colab environment and are not documented as local scripts or as a locally installed Python package.
 
 ## Research Team
 
@@ -352,6 +345,6 @@ The remaining work includes:
 
 ---
 
-**Project Repository:** [code-runtime-predictor](https://github.com/jhnlvnndrnl/code-runtime-predictor)
+**Project:** [code-runtime-predictor](https://drive.google.com/drive/folders/1zRnaAc_q1OHg67PCBia9eKju5-B0XbPX?usp=drive_link)
 
 **Research Focus:** Applying Linear Algebra and Regression Analysis to Software Performance Prediction.
