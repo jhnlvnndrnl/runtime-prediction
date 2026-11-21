@@ -310,7 +310,7 @@ The notebooks are designed for the Colab environment and are not documented as l
 ## Research Team
 
 | Name |
-|---|`
+|---|
 | Mary Yvonne Carandang |
 | Kelsey Leigh Cebrero |
 | John Elvin Endrenal |
